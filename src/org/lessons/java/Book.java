@@ -8,6 +8,13 @@ class Book {
     private String author;
     private String publisher;
 
+    public Book(String title, int pageCount, String author, String publisher) throws Exception {
+        setTitle(title);
+        setPageCount(pageCount);
+        setAuthor(author);
+        setPublisher(publisher);
+    }
+
     public String getTitle() {
         return title;
     }

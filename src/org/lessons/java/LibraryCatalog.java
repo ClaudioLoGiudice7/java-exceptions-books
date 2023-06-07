@@ -11,25 +11,20 @@ public class LibraryCatalog {
         Book[] books = new Book[n];
 
         for (int i = 0; i < n; i++) {
-            Book book = new Book();
             try {
                 System.out.println("Inserisci il titolo del libro:");
-                book.setTitle(scanner.nextLine());
+                String title = scanner.nextLine();
 
                 System.out.println("Inserisci il numero di pagine:");
-                while (!scanner.hasNextInt()) {
-                    System.out.println("Inserisci un numero valido:");
-                    scanner.next();
-                }
-                book.setPageCount(scanner.nextInt());
-                scanner.nextLine();
+                int pageCount = Integer.parseInt(scanner.nextLine());
 
                 System.out.println("Inserisci l'autore:");
-                book.setAuthor(scanner.nextLine());
+                String author = scanner.nextLine();
 
                 System.out.println("Inserisci l'editore: ");
-                book.setPublisher(scanner.nextLine());
+                String publisher = scanner.nextLine();
 
+                Book book = new Book(title, pageCount, author, publisher);
                 books[i] = book;
             } catch (Exception e) {
                 System.out.println("Errore: " + e.getMessage());
@@ -39,11 +34,13 @@ public class LibraryCatalog {
 
         System.out.println("Catalogo:");
         for (Book book : books) {
-            System.out.println("Titolo: " + book.getTitle());
-            System.out.println("Numero pagine: " + book.getPageCount());
-            System.out.println("Autore: " + book.getAuthor());
-            System.out.println("Editore: " + book.getPublisher());
-            System.out.println();
+            if (book != null) {
+                System.out.println("Titolo: " + book.getTitle());
+                System.out.println("Numero pagine: " + book.getPageCount());
+                System.out.println("Autore: " + book.getAuthor());
+                System.out.println("Editore: " + book.getPublisher());
+                System.out.println();
+            }
         }
     }
 }
